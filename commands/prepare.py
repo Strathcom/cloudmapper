@@ -597,6 +597,7 @@ def build_data_structure(account_data, config, outputfilter):
                 del cidrs[cidr_string]
 
                 # Get the larger known range
+                print(f'Discovered CIDR blocks: {cidrs.keys}')
                 new_source = cidrs[smallest_matched_cidr_string]
                 new_source.is_used = True
 

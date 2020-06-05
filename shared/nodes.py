@@ -494,6 +494,8 @@ class Rds(Leaf):
         if self._subnet:
             return self._subnet
         else:
+            if not 'DBSubnetGroup' in self._json_blob: 
+                return []
             return pyjq.all(
                 ".DBSubnetGroup.Subnets[].SubnetIdentifier", self._json_blob
             )
